@@ -1,0 +1,32 @@
+<RCC>
+  <qresource prefix="/widgets">
+    <file>widgets/Checkbox label checked.png</file>
+    <file>widgets/Checkbox checked hovered.png</file>
+    <file>widgets/Checkbox checked.png</file>
+    <file>widgets/Checkbox unchecked hovered.png</file>
+    <file>widgets/Checkbox unchecked.png</file>
+    <file>widgets/Checkbox label hovered.png</file>
+    <file>widgets/Checkbox label.png</file>
+    <file>widgets/Wallpaper3.png</file>
+    <file>widgets/Label_1.png</file>
+    <file>widgets/Label_1_hovered.png</file>
+    <file>widgets/Label_2.png</file>
+    <file>widgets/Label_2_hovered.png</file>
+    <file>widgets/version_label.png</file>
+    <file>widgets/version_label_hovered.png</file>
+    <file>widgets/Apple_hovered.png</file>
+    <file>widgets/Login button clicked.png</file>
+    <file>widgets/Login button disabled.png</file>
+    <file>widgets/Login button hovered.png</file>
+    <file>widgets/Login button.png</file>
+    <file>widgets/Help2.png</file>
+    <file>widgets/Facebook.png</file>
+    <file>widgets/Facebook_hovered.png</file>
+    <file>widgets/Google.png</file>
+    <file>widgets/Apple.png</file>
+    <file>widgets/Google_hovered.png</file>
+    <file>widgets/Riot Games.png</file>
+    <file>widgets/VALORANT.png</file>
+    <file>widgets/Sign in.png</file>
+  </qresource>
+</RCC>
