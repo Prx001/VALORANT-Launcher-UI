@@ -40,6 +40,9 @@ class Form(QMainWindow):
 		self.widget1.login_button.setStyleSheet("border-image: url(:/resources/resources/Login_button_disabled.png);")
 		self.widget1.username_line_edit.textChanged.connect(self.line_edit_text_changed)
 		self.widget1.password_line_edit.textChanged.connect(self.line_edit_text_changed)
+		self.widget1.facebook_button.clicked.connect(self.facebook_button_clicked)
+		self.widget1.google_button.clicked.connect(self.google_button_clicked)
+		self.widget1.apple_button.clicked.connect(self.apple_button_clicked)
 		self.widget1.facebook_button.pressed.connect(self.facebook_button_pressed)
 		self.widget1.google_button.pressed.connect(self.google_button_pressed)
 		self.widget1.apple_button.pressed.connect(self.apple_button_pressed)
@@ -131,9 +134,12 @@ QPushButton::hover {
 		self.oldPos = event.globalPos()
 
 	def mouseMoveEvent(self, event):
-		delta = QPoint(event.globalPos() - self.oldPos)
-		self.move(self.x() + delta.x(), self.y() + delta.y())
-		self.oldPos = event.globalPos()
+		try:
+			delta = QPoint(event.globalPos() - self.oldPos)
+			self.move(self.x() + delta.x(), self.y() + delta.y())
+			self.oldPos = event.globalPos()
+		except (AttributeError, UnboundLocalError):
+			pass
 
 	def move_to_center(self):
 		qr = self.frameGeometry()
