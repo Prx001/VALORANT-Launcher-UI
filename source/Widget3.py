@@ -15,7 +15,39 @@ class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(880, 720)
-        Form.setStyleSheet("background-image: url(:/resources/resources/Wallpaper3.png);")
+        Form.setStyleSheet("QWidget#Form {\n"
+"    background-image: url(:/resources/resources/Wallpaper3.png);\n"
+"}")
+        self.close_button = QtWidgets.QPushButton(Form)
+        self.close_button.setGeometry(QtCore.QRect(830, 0, 50, 40))
+        self.close_button.setStyleSheet("QPushButton {\n"
+"    border-image: url(:/resources/resources/Close.png);\n"
+"}\n"
+"QPushButton::hover {\n"
+"    border-image: url(:/resources/resources/Close_hovered.png);\n"
+"}")
+        self.close_button.setText("")
+        self.close_button.setObjectName("close_button")
+        self.help_button = QtWidgets.QPushButton(Form)
+        self.help_button.setGeometry(QtCore.QRect(780, 0, 50, 40))
+        self.help_button.setStyleSheet("QPushButton {\n"
+"    border-image: url(:/resources/resources/Help.png);\n"
+"}\n"
+"QPushButton::hover {\n"
+"    border-image: url(:/resources/resources/Help_hovered.png);\n"
+"}")
+        self.help_button.setText("")
+        self.help_button.setObjectName("help_button")
+        self.minimize_button = QtWidgets.QPushButton(Form)
+        self.minimize_button.setGeometry(QtCore.QRect(730, 0, 50, 40))
+        self.minimize_button.setStyleSheet("QPushButton {\n"
+"    border-image: url(:/resources/resources/Minimize.png);\n"
+"}\n"
+"QPushButton::hover {\n"
+"    border-image: url(:/resources/resources/Minimize_hovered.png);\n"
+"}")
+        self.minimize_button.setText("")
+        self.minimize_button.setObjectName("minimize_button")
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)

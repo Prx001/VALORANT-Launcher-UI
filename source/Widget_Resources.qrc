@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="/resources">
+    <file>resources/Close.png</file>
     <file>resources/Username_label.png</file>
     <file>resources/Password_label.png</file>
     <file>resources/Apple.png</file>
