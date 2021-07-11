@@ -1,11 +1,11 @@
 import sys
 
-from PyQt5.QtCore import Qt, QPoint
-from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow, QDesktopWidget
+from PyQt5.QtCore import Qt, QPoint, QRect, QPropertyAnimation, QBasicTimer
+from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow, QLabel, QDesktopWidget
 
 from Widget1 import Ui_Form as Widget_1
-from Widget2 import Ui_Form as Widget_2
-from Widget3 import Ui_Form as Widget_3
+from Widget3 import Ui_Form as Widget_2
+
 
 
 class Form(QMainWindow):
@@ -13,12 +13,16 @@ class Form(QMainWindow):
 		super().__init__()
 		self.widget1 = Widget_1()
 		self.widget2 = Widget_2()
-		self.widget3 = Widget_3()
-		self.left_1 = QWidget(self)
-		self.left_1.move(0, 0)
-		self.left_2 = QWidget(self)
-		self.left_2.move(0, 0)
-		self.left_2.hide()
+		self.left = QWidget(self)
+		self.left.move(0, 0)
+		self.widget1.valorant_logo = QLabel(self.left)
+		self.widget1.valorant_logo.setGeometry(QRect(168, -51, 66, 61))
+		self.widget1.valorant_logo.setStyleSheet("border-image: url(:/widgets/widgets/VALORANT.png);")
+		self.widget1.valorant_logo.setText("")
+		self.valorant_logo_animation = QPropertyAnimation(self.widget1.valorant_logo, b"geometry")
+		self.valorant_logo_animation.setDuration(1000)
+		self.valorant_logo_animation.setStartValue(self.widget1.valorant_logo.geometry())
+		self.valorant_logo_animation.setEndValue(QRect(168, 51, 66, 61))
 		self.right = QWidget(self)
 		self.right.move(400, 0)
 		self.initUI()
@@ -28,10 +32,25 @@ class Form(QMainWindow):
 		self.move_to_center()
 		self.setFixedSize(self.size())
 		self.setWindowFlag(Qt.FramelessWindowHint)
-		self.widget1.setupUi(self.left_1)
-		self.widget3.setupUi(self.right)
+		self.widget1.setupUi(self.left)
+		self.riot_games_logo_animation = QPropertyAnimation(self.widget1.riot_games_logo, b"geometry")
+		self.riot_games_logo_animation.setDuration(1000)
+		self.riot_games_logo_animation.setStartValue(self.widget1.riot_games_logo.geometry())
+		self.riot_games_logo_animation.setEndValue(QRect(138, -51, 126, 61))
+		self.widget2.setupUi(self.right)
+		self.timer = QBasicTimer()
+		self.second = 0
 		self.show()
-
+		self.timer.start(1000, self)
+	def timerEvent(self, time_event):
+		if self.second == 2:
+			self.riot_games_logo_animation.start()
+		if self.second == 4:
+			self.valorant_logo_animation.start()
+			del self.widget1.riot_games_logo
+			self.timer.stop()
+		self.second += 1
+		return super().timerEvent(time_event)
 	def mousePressEvent(self, event):
 		self.oldPos = event.globalPos()
 
