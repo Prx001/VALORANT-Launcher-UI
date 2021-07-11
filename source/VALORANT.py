@@ -95,6 +95,8 @@ class Form(QMainWindow):
 			del self.widget1.riot_games_logo
 			self.timer.stop()
 		self.second += 1
+		return super().timerEvent(time_event)
+
 	def eventFilter(self, object, event):
 		if object == self.widget1.username_line_edit:
 			if event.type() == QEvent.FocusIn and self.widget1.username_line_edit.text() == "":
@@ -119,6 +121,7 @@ class Form(QMainWindow):
 		# 	else:
 		# 		pass
 		return super().eventFilter(object, event)
+
 	def show_help(self):
 		webbrowser.open("https://support.riotgames.com/hc/en-us", new=2, autoraise=True)
 
@@ -155,6 +158,7 @@ QPushButton::hover {
 		self.widget1.facebook_button.setStyleSheet("""QPushButton {
 	border-image: url(:/resources/resources/Facebook_clicked.png);
 }""")
+
 	def facebook_button_released(self):
 		self.widget1.facebook_button.setStyleSheet("""QPushButton {
 	border-image: url(:/resources/resources/Facebook.png);
@@ -162,10 +166,12 @@ QPushButton::hover {
 QPushButton::hover {
 	border-image: url(:/resources/resources/Facebook_hovered.png);
 }""")
+
 	def google_button_clicked(self):
 		webbrowser.open(
 			"https://accounts.google.com/o/oauth2/v2/auth/oauthchooseaccount?access_type=online&scope=openid%20profile%20email&state=e5fb53d0ec477f7222bf347dfa58f44491235be3bdcaf7a4afd81d35f43d&prompt=select_account&response_type=code&client_id=187685766663-ct6bdnthcq6jlllecpg1guhthoc7i8vv.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fauthenticate.riotgames.com%2Fredirects%2Fgoogle&flowName=GeneralOAuthFlow",
 			new=2, autoraise=True)
+
 	def google_button_pressed(self):
 		self.widget1.google_button.setStyleSheet("""QPushButton {
 	border-image: url(:/resources/resources/Google_clicked.png);
@@ -178,20 +184,16 @@ QPushButton::hover {
 QPushButton::hover {
 	border-image: url(:/resources/resources/Google_hovered.png);
 }""")
+
 	def apple_button_clicked(self):
-		return super().timerEvent(time_event)
 		webbrowser.open(
 			"https://appleid.apple.com/auth/authorize?response_type=code%20id_token&response_mode=form_post&client_id=com.riotgames.authenticator.prod.client&redirect_uri=https%3A%2F%2Fauthenticate.riotgames.com%2Fredirects%2Fapple&scope=name%20email&nonce=0f42d321114d78d1537c53d0ea67accdb834607ca79f3dfb42f9eb934b1b",
 			new=2, autoraise=True)
-
-
 
 	def apple_button_pressed(self):
 		self.widget1.apple_button.setStyleSheet("""QPushButton {
 	border-image: url(:/resources/resources/Apple_clicked.png);
 }""")
-
-
 
 	def apple_button_released(self):
 		self.widget1.apple_button.setStyleSheet("""QPushButton {
@@ -200,9 +202,11 @@ QPushButton::hover {
 QPushButton::hover {
 	border-image: url(:/resources/resources/Apple_hovered.png);
 }""")
+
 	def checkbox_state_changed(self):
 		if self.widget1.stay_signed_in_checkbox.isChecked():
-			self.widget1.checkbox_label.setStyleSheet("""border-image: url(:/resources/resources/Checkbox_label_checked.png);""")
+			self.widget1.checkbox_label.setStyleSheet(
+				"""border-image: url(:/resources/resources/Checkbox_label_checked.png);""")
 		elif not self.widget1.stay_signed_in_checkbox.isChecked():
 			self.widget1.checkbox_label.setStyleSheet("""QLabel {
 	border-image: url(:/resources/resources/Checkbox_label.png);
@@ -210,7 +214,6 @@ QPushButton::hover {
 QLabel::hover {
 	border-image: url(:/resources/resources/Checkbox_label_hovered.png);
 }""")
-
 
 	def mousePressEvent(self, event):
 		self.oldPos = event.globalPos()
