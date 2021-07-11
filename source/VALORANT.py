@@ -1,11 +1,11 @@
 import sys
+import webbrowser
 
 from PyQt5.QtCore import Qt, QPoint, QRect, QPropertyAnimation, QBasicTimer
 from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow, QLabel, QDesktopWidget
 
 from Widget1 import Ui_Form as Widget_1
 from Widget3 import Ui_Form as Widget_2
-
 
 
 class Form(QMainWindow):
@@ -17,7 +17,7 @@ class Form(QMainWindow):
 		self.left.move(0, 0)
 		self.widget1.valorant_logo = QLabel(self.left)
 		self.widget1.valorant_logo.setGeometry(QRect(168, -51, 66, 61))
-		self.widget1.valorant_logo.setStyleSheet("border-image: url(:/widgets/widgets/VALORANT.png);")
+		self.widget1.valorant_logo.setStyleSheet("border-image: url(:/resources/resources/VALORANT.png);")
 		self.widget1.valorant_logo.setText("")
 		self.valorant_logo_animation = QPropertyAnimation(self.widget1.valorant_logo, b"geometry")
 		self.valorant_logo_animation.setDuration(1000)
@@ -37,11 +37,86 @@ class Form(QMainWindow):
 		self.riot_games_logo_animation.setDuration(1000)
 		self.riot_games_logo_animation.setStartValue(self.widget1.riot_games_logo.geometry())
 		self.riot_games_logo_animation.setEndValue(QRect(138, -51, 126, 61))
+		self.widget1.login_button.setStyleSheet("border-image: url(:/resources/resources/Login_button_disabled.png);")
+		self.widget1.username_line_edit.textChanged.connect(self.line_edit_text_changed)
+		self.widget1.password_line_edit.textChanged.connect(self.line_edit_text_changed)
+		self.widget1.facebook_button.pressed.connect(self.facebook_button_pressed)
+		self.widget1.google_button.pressed.connect(self.google_button_pressed)
+		self.widget1.apple_button.pressed.connect(self.apple_button_pressed)
+		self.widget1.facebook_button.released.connect(self.facebook_button_released)
+		self.widget1.google_button.released.connect(self.google_button_released)
+		self.widget1.apple_button.released.connect(self.apple_button_released)
 		self.widget2.setupUi(self.right)
 		self.timer = QBasicTimer()
 		self.second = 0
 		self.show()
 		self.timer.start(1000, self)
+
+	def line_edit_text_changed(self):
+		if self.widget1.username_line_edit.text() != "" and self.widget1.password_line_edit.text() != "":
+			self.widget1.login_button.setStyleSheet("""QPushButton {
+	border-image: url(:/resources/resources/Login_button.png);
+}
+QPushButton::hover {
+	border-image: url(:/resources/resources/Login_button_hovered.png);
+}""")
+		elif self.widget1.username_line_edit.text() == "" or self.widget1.password_line_edit.text() == "":
+			self.widget1.login_button.setStyleSheet("border-image: url(:/resources/resources/Login_button_disabled.png);")
+
+	def facebook_button_clicked(self):
+		webbrowser.open(
+			"https://www.facebook.com/v8.0/dialog/oauth?client_id=344190606773871&redirect_uri=https%3A%2F%2Fauthenticate.riotgames.com%2Fredirects%2Ffacebook&state=0e2e4d7ec57976960f61b9f22eed0cb2da5450f8f20362c11833a0a4e0e0&scope=email",
+			new=2, autoraise=True)
+
+	def google_button_clicked(self):
+		webbrowser.open(
+			"https://accounts.google.com/o/oauth2/v2/auth/oauthchooseaccount?access_type=online&scope=openid%20profile%20email&state=e5fb53d0ec477f7222bf347dfa58f44491235be3bdcaf7a4afd81d35f43d&prompt=select_account&response_type=code&client_id=187685766663-ct6bdnthcq6jlllecpg1guhthoc7i8vv.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fauthenticate.riotgames.com%2Fredirects%2Fgoogle&flowName=GeneralOAuthFlow",
+			new=2, autoraise=True)
+
+	def apple_button_clicked(self):
+		webbrowser.open(
+			"https://appleid.apple.com/auth/authorize?response_type=code%20id_token&response_mode=form_post&client_id=com.riotgames.authenticator.prod.client&redirect_uri=https%3A%2F%2Fauthenticate.riotgames.com%2Fredirects%2Fapple&scope=name%20email&nonce=0f42d321114d78d1537c53d0ea67accdb834607ca79f3dfb42f9eb934b1b",
+			new=2, autoraise=True)
+
+	def facebook_button_pressed(self):
+		self.widget1.facebook_button.setStyleSheet("""QPushButton {
+	border-image: url(:/resources/resources/Facebook_clicked.png);
+}""")
+
+	def google_button_pressed(self):
+		self.widget1.google_button.setStyleSheet("""QPushButton {
+	border-image: url(:/resources/resources/Google_clicked.png);
+}""")
+
+	def apple_button_pressed(self):
+		self.widget1.apple_button.setStyleSheet("""QPushButton {
+	border-image: url(:/resources/resources/Apple_clicked.png);
+}""")
+
+	def facebook_button_released(self):
+		self.widget1.facebook_button.setStyleSheet("""QPushButton {
+	border-image: url(:/resources/resources/Facebook.png);
+}
+QPushButton::hover {
+	border-image: url(:/resources/resources/Facebook_hovered.png);
+}""")
+
+	def google_button_released(self):
+		self.widget1.google_button.setStyleSheet("""QPushButton {
+	border-image: url(:/resources/resources/Google.png);
+}
+QPushButton::hover {
+	border-image: url(:/resources/resources/Google_hovered.png);
+}""")
+
+	def apple_button_released(self):
+		self.widget1.apple_button.setStyleSheet("""QPushButton {
+	border-image: url(:/resources/resources/Apple.png);
+}
+QPushButton::hover {
+	border-image: url(:/resources/resources/Apple_hovered.png);
+}""")
+
 	def timerEvent(self, time_event):
 		if self.second == 2:
 			self.riot_games_logo_animation.start()
@@ -51,6 +126,7 @@ class Form(QMainWindow):
 			self.timer.stop()
 		self.second += 1
 		return super().timerEvent(time_event)
+
 	def mousePressEvent(self, event):
 		self.oldPos = event.globalPos()
 

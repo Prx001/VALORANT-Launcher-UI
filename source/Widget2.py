@@ -49,113 +49,113 @@ class Ui_Form(object):
         self.password_line_edit.setObjectName("password_line_edit")
         self.sign_in_label = QtWidgets.QLabel(Form)
         self.sign_in_label.setGeometry(QtCore.QRect(160, 159, 80, 33))
-        self.sign_in_label.setStyleSheet("border-image: url(:/widgets/widgets/Sign in.png);")
+        self.sign_in_label.setStyleSheet("border-image: url(:/resources/resources/Sign_in.png);")
         self.sign_in_label.setText("")
         self.sign_in_label.setObjectName("sign_in_label")
         self.facebook_button = QtWidgets.QPushButton(Form)
         self.facebook_button.setGeometry(QtCore.QRect(56, 353, 91, 32))
         self.facebook_button.setStyleSheet("QPushButton {\n"
-"    border-image: url(:/widgets/widgets/Facebook.png);\n"
+"    border-image: url(:/resources/resources/Facebook.png);\n"
 "}\n"
 "QPushButton::hover {\n"
-"    border-image: url(:/widgets/widgets/Facebook_hovered.png);\n"
+"    border-image: url(:/resources/resources/Facebook_hovered.png);\n"
 "}")
         self.facebook_button.setText("")
         self.facebook_button.setObjectName("facebook_button")
         self.google_button = QtWidgets.QPushButton(Form)
         self.google_button.setGeometry(QtCore.QRect(155, 353, 90, 32))
         self.google_button.setStyleSheet("QPushButton {\n"
-"    border-image: url(:/widgets/widgets/Google.png);\n"
+"    border-image: url(:/resources/resources/Google.png);\n"
 "}\n"
 "QPushButton::hover {\n"
-"    border-image: url(:/widgets/widgets/Google_hovered.png);\n"
+"    border-image: url(:/resources/resources/Google_hovered.png);\n"
 "}")
         self.google_button.setText("")
         self.google_button.setObjectName("google_button")
         self.apple_button = QtWidgets.QPushButton(Form)
         self.apple_button.setGeometry(QtCore.QRect(253, 353, 91, 32))
         self.apple_button.setStyleSheet("QPushButton {\n"
-"    border-image: url(:/widgets/widgets/Apple.png);\n"
+"    border-image: url(:/resources/resources/Apple.png);\n"
 "}\n"
 "QPushButton::hover {\n"
-"    border-image: url(:/widgets/widgets/Apple_hovered.png);\n"
+"    border-image: url(:/resources/resources/Apple_hovered.png);\n"
 "}")
         self.apple_button.setText("")
         self.apple_button.setObjectName("apple_button")
         self.help_tooltip = QtWidgets.QPushButton(Form)
         self.help_tooltip.setGeometry(QtCore.QRect(326, 44, 22, 22))
-        self.help_tooltip.setStyleSheet("border-image: url(:/widgets/widgets/Help2.png);")
+        self.help_tooltip.setStyleSheet("border-image: url(:/resources/resources/Help2.png);")
         self.help_tooltip.setText("")
         self.help_tooltip.setObjectName("help_tooltip")
         self.stay_signed_in_checkbox = QtWidgets.QCheckBox(Form)
         self.stay_signed_in_checkbox.setGeometry(QtCore.QRect(56, 395, 17, 21))
         self.stay_signed_in_checkbox.setStyleSheet("QCheckBox::indicator:unchecked {\n"
-"    border-image: url(:/widgets/widgets/Checkbox unchecked.png);\n"
+"    border-image: url(:/resources/resources/Checkbox_unchecked.png);\n"
 "}\n"
 "QCheckBox::indicator:unchecked:hover {\n"
-"    border-image: url(:/widgets/widgets/Checkbox unchecked hovered.png);\n"
+"    border-image: url(:/resources/resources/Checkbox_unchecked_hovered.png);\n"
 "}\n"
 "QCheckBox::indicator:checked {\n"
-"    border-image: url(:/widgets/widgets/Checkbox checked.png);\n"
+"    border-image: url(:/resources/resources/Checkbox_checked.png);\n"
 "}\n"
 "QCheckBox::indicator:checked:hover {\n"
-"    border-image: url(:/widgets/widgets/Checkbox checked hovered.png);\n"
+"    border-image: url(:/resources/resources/Checkbox_checked_hovered.png);\n"
 "}")
         self.stay_signed_in_checkbox.setText("")
         self.stay_signed_in_checkbox.setObjectName("stay_signed_in_checkbox")
         self.login_button = QtWidgets.QPushButton(Form)
         self.login_button.setGeometry(QtCore.QRect(168, 512, 64, 64))
         self.login_button.setStyleSheet("QPushButton {\n"
-"    border-image: url(:/widgets/widgets/Login button.png);\n"
+"    border-image: url(:/resources/resources/Login_button.png);\n"
 "}\n"
 "QPushButton::hover {\n"
-"    border-image: url(:/widgets/widgets/Login button hovered.png);\n"
+"    border-image: url(:/resources/resources/Login_button_hovered.png);\n"
 "}")
         self.login_button.setText("")
         self.login_button.setObjectName("login_button")
         self.version_label = QtWidgets.QLabel(Form)
         self.version_label.setGeometry(QtCore.QRect(298, 657, 48, 18))
         self.version_label.setStyleSheet("QLabel {\n"
-"    border-image: url(:/widgets/widgets/version_label.png);\n"
+"    border-image: url(:/resources/resources/version_label.png);\n"
 "}\n"
 "QLabel::hover {\n"
-"    border-image: url(:/widgets/widgets/version_label_hovered.png);\n"
+"    border-image: url(:/resources/resources/version_label_hovered.png);\n"
 "}")
         self.version_label.setText("")
         self.version_label.setObjectName("version_label")
         self.label_1 = QtWidgets.QLabel(Form)
         self.label_1.setGeometry(QtCore.QRect(156, 637, 88, 18))
         self.label_1.setStyleSheet("QLabel {\n"
-"    border-image: url(:/widgets/widgets/Label_1.png);\n"
+"    border-image: url(:/resources/resources/Label_1.png);\n"
 "}\n"
 "QLabel::hover {\n"
-"    border-image: url(:/widgets/widgets/Label_1_hovered.png);\n"
+"    border-image: url(:/resources/resources/Label_1_hovered.png);\n"
 "}")
         self.label_1.setText("")
         self.label_1.setObjectName("label_1")
         self.label_2 = QtWidgets.QLabel(Form)
         self.label_2.setGeometry(QtCore.QRect(149, 654, 102, 18))
         self.label_2.setStyleSheet("QLabel {\n"
-"    border-image: url(:/widgets/widgets/Label_2.png);\n"
+"    border-image: url(:/resources/resources/Label_2.png);\n"
 "}\n"
 "QLabel::hover {\n"
-"    border-image: url(:/widgets/widgets/Label_2_hovered.png);\n"
+"    border-image: url(:/resources/resources/Label_2_hovered.png);\n"
 "}")
         self.label_2.setText("")
         self.label_2.setObjectName("label_2")
         self.checkbox_label = QtWidgets.QLabel(Form)
         self.checkbox_label.setGeometry(QtCore.QRect(77, 395, 94, 22))
         self.checkbox_label.setStyleSheet("QLabel {\n"
-"    border-image: url(:/widgets/widgets/Checkbox label.png);\n"
+"    border-image: url(:/resources/resources/Checkbox_label.png);\n"
 "}\n"
 "QLabel::hover {\n"
-"    border-image: url(:/widgets/widgets/Checkbox label hovered.png);\n"
+"    border-image: url(:/resources/resources/Checkbox_label_hovered.png);\n"
 "}")
         self.checkbox_label.setText("")
         self.checkbox_label.setObjectName("checkbox_label")
         self.valorant_logo = QtWidgets.QLabel(Form)
         self.valorant_logo.setGeometry(QtCore.QRect(168, 51, 66, 61))
-        self.valorant_logo.setStyleSheet("border-image: url(:/widgets/widgets/VALORANT.png);")
+        self.valorant_logo.setStyleSheet("border-image: url(:/resources/resources/VALORANT.png);")
         self.valorant_logo.setText("")
         self.valorant_logo.setObjectName("valorant_logo")
 

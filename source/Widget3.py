@@ -15,7 +15,7 @@ class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(880, 720)
-        Form.setStyleSheet("background-image: url(:/widgets/widgets/Wallpaper3.png);")
+        Form.setStyleSheet("background-image: url(:/resources/resources/Wallpaper3.png);")
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)

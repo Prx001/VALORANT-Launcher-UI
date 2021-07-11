@@ -77,7 +77,7 @@ QLineEdit::focus {
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/widgets/widgets/Sign in.png);</string>
+    <string notr="true">border-image: url(:/resources/resources/Sign_in.png);</string>
    </property>
    <property name="text">
     <string/>
@@ -94,10 +94,10 @@ QLineEdit::focus {
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
-	border-image: url(:/widgets/widgets/Facebook.png);
+	border-image: url(:/resources/resources/Facebook.png);
 }
 QPushButton::hover {
-	border-image: url(:/widgets/widgets/Facebook_hovered.png);
+	border-image: url(:/resources/resources/Facebook_hovered.png);
 }</string>
    </property>
    <property name="text">
@@ -115,10 +115,10 @@ QPushButton::hover {
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
-	border-image: url(:/widgets/widgets/Google.png);
+	border-image: url(:/resources/resources/Google.png);
 }
 QPushButton::hover {
-	border-image: url(:/widgets/widgets/Google_hovered.png);
+	border-image: url(:/resources/resources/Google_hovered.png);
 }</string>
    </property>
    <property name="text">
@@ -136,10 +136,10 @@ QPushButton::hover {
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
-	border-image: url(:/widgets/widgets/Apple.png);
+	border-image: url(:/resources/resources/Apple.png);
 }
 QPushButton::hover {
-	border-image: url(:/widgets/widgets/Apple_hovered.png);
+	border-image: url(:/resources/resources/Apple_hovered.png);
 }</string>
    </property>
    <property name="text">
@@ -156,7 +156,7 @@ QPushButton::hover {
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/widgets/widgets/Help2.png);</string>
+    <string notr="true">border-image: url(:/resources/resources/Help2.png);</string>
    </property>
    <property name="text">
     <string/>
@@ -173,16 +173,16 @@ QPushButton::hover {
    </property>
    <property name="styleSheet">
     <string notr="true">QCheckBox::indicator:unchecked {
-	border-image: url(:/widgets/widgets/Checkbox unchecked.png);
+	border-image: url(:/resources/resources/Checkbox_unchecked.png);
 }
 QCheckBox::indicator:unchecked:hover {
-	border-image: url(:/widgets/widgets/Checkbox unchecked hovered.png);
+	border-image: url(:/resources/resources/Checkbox_unchecked_hovered.png);
 }
 QCheckBox::indicator:checked {
-	border-image: url(:/widgets/widgets/Checkbox checked.png);
+	border-image: url(:/resources/resources/Checkbox_checked.png);
 }
 QCheckBox::indicator:checked:hover {
-	border-image: url(:/widgets/widgets/Checkbox checked hovered.png);
+	border-image: url(:/resources/resources/Checkbox_checked_hovered.png);
 }</string>
    </property>
    <property name="text">
@@ -200,10 +200,10 @@ QCheckBox::indicator:checked:hover {
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
-	border-image: url(:/widgets/widgets/Login button.png);
+	border-image: url(:/resources/resources/Login_button.png);
 }
 QPushButton::hover {
-	border-image: url(:/widgets/widgets/Login button hovered.png);
+	border-image: url(:/resources/resources/Login_button_hovered.png);
 }</string>
    </property>
    <property name="text">
@@ -221,10 +221,10 @@ QPushButton::hover {
    </property>
    <property name="styleSheet">
     <string notr="true">QLabel {
-	border-image: url(:/widgets/widgets/version_label.png);
+	border-image: url(:/resources/resources/version_label.png);
 }
 QLabel::hover {
-	border-image: url(:/widgets/widgets/version_label_hovered.png);
+	border-image: url(:/resources/resources/version_label_hovered.png);
 }</string>
    </property>
    <property name="text">
@@ -242,10 +242,10 @@ QLabel::hover {
    </property>
    <property name="styleSheet">
     <string notr="true">QLabel {
-	border-image: url(:/widgets/widgets/Label_1.png);
+	border-image: url(:/resources/resources/Label_1.png);
 }
 QLabel::hover {
-	border-image: url(:/widgets/widgets/Label_1_hovered.png);
+	border-image: url(:/resources/resources/Label_1_hovered.png);
 }</string>
    </property>
    <property name="text">
@@ -263,10 +263,10 @@ QLabel::hover {
    </property>
    <property name="styleSheet">
     <string notr="true">QLabel {
-	border-image: url(:/widgets/widgets/Label_2.png);
+	border-image: url(:/resources/resources/Label_2.png);
 }
 QLabel::hover {
-	border-image: url(:/widgets/widgets/Label_2_hovered.png);
+	border-image: url(:/resources/resources/Label_2_hovered.png);
 }</string>
    </property>
    <property name="text">
@@ -284,10 +284,10 @@ QLabel::hover {
    </property>
    <property name="styleSheet">
     <string notr="true">QLabel {
-	border-image: url(:/widgets/widgets/Checkbox label.png);
+	border-image: url(:/resources/resources/Checkbox_label.png);
 }
 QLabel::hover {
-	border-image: url(:/widgets/widgets/Checkbox label hovered.png);
+	border-image: url(:/resources/resources/Checkbox_label_hovered.png);
 }</string>
    </property>
    <property name="text">
@@ -304,7 +304,7 @@ QLabel::hover {
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/widgets/widgets/Riot Games.png);</string>
+    <string notr="true">border-image: url(:/resources/resources/Riot_Games.png);</string>
    </property>
    <property name="text">
     <string/>
