@@ -1,7 +1,7 @@
 import sys
 import webbrowser
 
-from PyQt5.QtCore import Qt, QPoint, QRect, QPropertyAnimation, QBasicTimer
+from PyQt5.QtCore import Qt, QPoint, QRect, QEvent, QPropertyAnimation, QBasicTimer
 from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow, QLabel, QDesktopWidget
 
 from Widget1 import Ui_Form as Widget_1
@@ -20,7 +20,7 @@ class Form(QMainWindow):
 		self.widget1.valorant_logo.setStyleSheet("border-image: url(:/resources/resources/VALORANT.png);")
 		self.widget1.valorant_logo.setText("")
 		self.valorant_logo_animation = QPropertyAnimation(self.widget1.valorant_logo, b"geometry")
-		self.valorant_logo_animation.setDuration(1000)
+		self.valorant_logo_animation.setDuration(500)
 		self.valorant_logo_animation.setStartValue(self.widget1.valorant_logo.geometry())
 		self.valorant_logo_animation.setEndValue(QRect(168, 51, 66, 61))
 		self.right = QWidget(self)
@@ -33,11 +33,38 @@ class Form(QMainWindow):
 		self.setFixedSize(self.size())
 		self.setWindowFlag(Qt.FramelessWindowHint)
 		self.widget1.setupUi(self.left)
+
 		self.riot_games_logo_animation = QPropertyAnimation(self.widget1.riot_games_logo, b"geometry")
-		self.riot_games_logo_animation.setDuration(1000)
+		self.riot_games_logo_animation.setDuration(500)
 		self.riot_games_logo_animation.setStartValue(self.widget1.riot_games_logo.geometry())
 		self.riot_games_logo_animation.setEndValue(QRect(138, -51, 126, 61))
+
+		self.username_title_animation = QPropertyAnimation(self.widget1.username_label, b"geometry")
+		self.username_title_animation.setDuration(200)
+		self.username_title_animation.setStartValue(self.widget1.username_label.geometry())
+		self.username_title_animation.setEndValue(QRect(62, 222, 59, 8))
+
+		self.password_title_animation = QPropertyAnimation(self.widget1.password_label, b"geometry")
+		self.password_title_animation.setDuration(200)
+		self.password_title_animation.setStartValue(self.widget1.password_label.geometry())
+		self.password_title_animation.setEndValue(QRect(62, 286, 61, 8))
+
+		self.username_title_reverse_animation = QPropertyAnimation(self.widget1.username_label, b"geometry")
+		self.username_title_reverse_animation.setDuration(200)
+		self.username_title_reverse_animation.setStartValue(QRect(62, 222, 59, 8))
+		self.username_title_reverse_animation.setEndValue(QRect(72, 236, 59, 8))
+
+		self.password_title_reverse_animation = QPropertyAnimation(self.widget1.password_label, b"geometry")
+		self.password_title_reverse_animation.setDuration(200)
+		self.password_title_reverse_animation.setStartValue(QRect(62, 286, 61, 8))
+		self.password_title_reverse_animation.setEndValue(QRect(72, 300, 61, 8))
+
+		self.widget1.username_line_edit.installEventFilter(self)
+		self.widget1.password_line_edit.installEventFilter(self)
+		self.installEventFilter(self)
 		self.widget1.login_button.setStyleSheet("border-image: url(:/resources/resources/Login_button_disabled.png);")
+		self.widget1.login_button.pressed.connect(self.login_button_pressed)
+		self.widget1.login_button.released.connect(self.login_button_released)
 		self.widget1.username_line_edit.textChanged.connect(self.line_edit_text_changed)
 		self.widget1.password_line_edit.textChanged.connect(self.line_edit_text_changed)
 		self.widget1.facebook_button.clicked.connect(self.facebook_button_clicked)
@@ -55,6 +82,26 @@ class Form(QMainWindow):
 		self.show()
 		self.timer.start(1000, self)
 
+	def eventFilter(self, object, event):
+		if object == self.widget1.username_line_edit:
+			if event.type() == QEvent.FocusIn and self.widget1.username_line_edit.text() == "":
+				self.username_title_animation.start()
+			elif event.type() == QEvent.FocusOut and self.widget1.username_line_edit.text() == "":
+				self.username_title_reverse_animation.start()
+		elif object == self.widget1.password_line_edit:
+			if event.type() == QEvent.FocusIn and self.widget1.password_line_edit.text() == "":
+				self.password_title_animation.start()
+			elif event.type() == QEvent.FocusOut and self.widget1.password_line_edit.text() == "":
+				self.password_title_reverse_animation.start()
+		# if object == self:
+		# 	if self.widget1.username_line_edit.hasFocus():
+		# 		self.widget1.username_line_edit.clearFocus()
+		# 	elif self.widget1.password_line_edit.hasFocus():
+		# 		self.widget1.password_line_edit.clearFocus()
+		# 	else:
+		# 		pass
+		return super().eventFilter(object, event)
+
 	def line_edit_text_changed(self):
 		if self.widget1.username_line_edit.text() != "" and self.widget1.password_line_edit.text() != "":
 			self.widget1.login_button.setStyleSheet("""QPushButton {
@@ -64,7 +111,20 @@ QPushButton::hover {
 	border-image: url(:/resources/resources/Login_button_hovered.png);
 }""")
 		elif self.widget1.username_line_edit.text() == "" or self.widget1.password_line_edit.text() == "":
-			self.widget1.login_button.setStyleSheet("border-image: url(:/resources/resources/Login_button_disabled.png);")
+			self.widget1.login_button.setStyleSheet(
+				"border-image: url(:/resources/resources/Login_button_disabled.png);")
+
+	def login_button_pressed(self):
+		self.widget1.login_button.setStyleSheet(
+			"""border-image: url(:/resources/resources/Login_button_clicked.png);""")
+
+	def login_button_released(self):
+		self.widget1.login_button.setStyleSheet("""QPushButton {
+	border-image: url(:/resources/resources/Login_button.png);
+}
+QPushButton::hover {
+	border-image: url(:/resources/resources/Login_button_hovered.png);
+}""")
 
 	def facebook_button_clicked(self):
 		webbrowser.open(
@@ -123,7 +183,7 @@ QPushButton::hover {
 	def timerEvent(self, time_event):
 		if self.second == 2:
 			self.riot_games_logo_animation.start()
-		if self.second == 4:
+		if self.second == 3:
 			self.valorant_logo_animation.start()
 			del self.widget1.riot_games_logo
 			self.timer.stop()

@@ -21,7 +21,8 @@ class Ui_Form(object):
         self.username_line_edit.setGeometry(QtCore.QRect(56, 217, 288, 48))
         self.username_line_edit.setStyleSheet("QLineEdit {\n"
 "    border-radius: 5px;\n"
-"    color: #FFF;\n"
+"    color: rgb(51, 51, 51);\n"
+"    font: 75 8pt \"Microsoft YaHei\";\n"
 "    background-color: rgb(237, 237, 237);\n"
 "}\n"
 "QLineEdit::hover {\n"
@@ -36,7 +37,8 @@ class Ui_Form(object):
         self.password_line_edit.setGeometry(QtCore.QRect(56, 281, 288, 48))
         self.password_line_edit.setStyleSheet("QLineEdit {\n"
 "    border-radius: 5px;\n"
-"    color: #FFF;\n"
+"    color: rgb(51, 51, 51);\n"
+"    font: 75 8pt \"Microsoft YaHei\";\n"
 "    background-color: rgb(237, 237, 237);\n"
 "}\n"
 "QLineEdit::hover {\n"
@@ -46,6 +48,7 @@ class Ui_Form(object):
 "    border: 2px solid rgb(51, 51, 51);\n"
 "    background-color: rgb(249, 249, 249);\n"
 "}")
+        self.password_line_edit.setEchoMode(QtWidgets.QLineEdit.Password)
         self.password_line_edit.setObjectName("password_line_edit")
         self.sign_in_label = QtWidgets.QLabel(Form)
         self.sign_in_label.setGeometry(QtCore.QRect(160, 159, 80, 33))
@@ -153,6 +156,16 @@ class Ui_Form(object):
 "}")
         self.checkbox_label.setText("")
         self.checkbox_label.setObjectName("checkbox_label")
+        self.username_label = QtWidgets.QLabel(Form)
+        self.username_label.setGeometry(QtCore.QRect(72, 236, 59, 8))
+        self.username_label.setStyleSheet("border-image: url(:/resources/resources/Username_label.png);")
+        self.username_label.setText("")
+        self.username_label.setObjectName("username_label")
+        self.password_label = QtWidgets.QLabel(Form)
+        self.password_label.setGeometry(QtCore.QRect(72, 300, 61, 8))
+        self.password_label.setStyleSheet("border-image: url(:/resources/resources/Password_label.png);")
+        self.password_label.setText("")
+        self.password_label.setObjectName("password_label")
         self.valorant_logo = QtWidgets.QLabel(Form)
         self.valorant_logo.setGeometry(QtCore.QRect(168, 51, 66, 61))
         self.valorant_logo.setStyleSheet("border-image: url(:/resources/resources/VALORANT.png);")
@@ -161,6 +174,13 @@ class Ui_Form(object):
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
+        Form.setTabOrder(self.help_tooltip, self.username_line_edit)
+        Form.setTabOrder(self.username_line_edit, self.password_line_edit)
+        Form.setTabOrder(self.password_line_edit, self.facebook_button)
+        Form.setTabOrder(self.facebook_button, self.google_button)
+        Form.setTabOrder(self.google_button, self.apple_button)
+        Form.setTabOrder(self.apple_button, self.stay_signed_in_checkbox)
+        Form.setTabOrder(self.stay_signed_in_checkbox, self.login_button)
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
