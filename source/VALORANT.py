@@ -10,10 +10,11 @@ from Widget import Ui_Form as Widget
 class Form(QMainWindow):
 	def __init__(self):
 		super().__init__()
-		self.widget1 = Widget()
+
 		self.setStyleSheet("""QMainWindow {
 	background-image: url(:/resources/resources/Wallpaper.png);
 }""")
+		self.widget1 = Widget()
 		self.close_button = QPushButton(self)
 		self.close_button.setGeometry(1230, 0, 50, 40)
 		self.close_button.setStyleSheet("""QPushButton {
@@ -55,6 +56,7 @@ QPushButton::hover {
 		self.valorant_logo_animation.setEndValue(QRect(168, 51, 66, 61))
 		self.right = QWidget(self)
 		self.right.move(400, 0)
+		
 		self.initUI()
 
 	def initUI(self):
