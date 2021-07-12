@@ -4,13 +4,13 @@ import webbrowser
 from PyQt5.QtCore import Qt, QPoint, QRect, QEvent, QPropertyAnimation, QBasicTimer
 from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow, QPushButton, QLabel, QDesktopWidget
 
-from Widget1 import Ui_Form as Widget_1
+from Widget import Ui_Form as Widget
 
 
 class Form(QMainWindow):
 	def __init__(self):
 		super().__init__()
-		self.widget1 = Widget_1()
+		self.widget1 = Widget()
 		self.setStyleSheet("""QMainWindow {
 	background-image: url(:/resources/resources/Wallpaper.png);
 }""")
