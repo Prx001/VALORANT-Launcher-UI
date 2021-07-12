@@ -14,9 +14,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QWidget#Form {
-	background-image: url(:/resources/resources/Wallpaper3.png);
-}</string>
+   <string notr="true"/>
   </property>
   <widget class="QPushButton" name="close_button">
    <property name="geometry">

@@ -38,6 +38,6 @@
     <file>resources/VALORANT.png</file>
     <file>resources/version_label.png</file>
     <file>resources/version_label_hovered.png</file>
-    <file>resources/Wallpaper3.png</file>
+    <file>resources/Wallpaper.png</file>
   </qresource>
 </RCC>

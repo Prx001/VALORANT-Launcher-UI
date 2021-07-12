@@ -2,17 +2,47 @@ import sys
 import webbrowser
 
 from PyQt5.QtCore import Qt, QPoint, QRect, QEvent, QPropertyAnimation, QBasicTimer
-from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow, QLabel, QDesktopWidget
+from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow, QPushButton, QLabel, QDesktopWidget
 
 from Widget1 import Ui_Form as Widget_1
-from Widget3 import Ui_Form as Widget_2
 
 
 class Form(QMainWindow):
 	def __init__(self):
 		super().__init__()
 		self.widget1 = Widget_1()
-		self.widget2 = Widget_2()
+		self.setStyleSheet("""QMainWindow {
+	background-image: url(:/resources/resources/Wallpaper.png);
+}""")
+		self.close_button = QPushButton(self)
+		self.close_button.setGeometry(1230, 0, 50, 40)
+		self.close_button.setStyleSheet("""QPushButton {
+	border-image: url(:/resources/resources/Close.png);
+}
+QPushButton::hover {
+	border-image: url(:/resources/resources/Close_hovered.png);
+}""")
+		self.close_button.setText("")
+		self.help_button = QPushButton(self)
+		self.help_button.setGeometry(1180, 0, 50, 40)
+		self.help_button.setStyleSheet("""QPushButton {
+	border-image: url(:/resources/resources/Help.png);
+}
+QPushButton::hover {
+	border-image: url(:/resources/resources/Help_hovered.png);
+}""")
+		self.help_button.setText("")
+		self.help_button.setObjectName("help_button")
+		self.minimize_button = QPushButton(self)
+		self.minimize_button.setGeometry(1130, 0, 50, 40)
+		self.minimize_button.setStyleSheet("""QPushButton {
+	border-image: url(:/resources/resources/Minimize.png);
+}
+QPushButton::hover {
+	border-image: url(:/resources/resources/Minimize_hovered.png);
+}""")
+		self.minimize_button.setText("")
+		self.minimize_button.setObjectName("minimize_button")
 		self.left = QWidget(self)
 		self.left.move(0, 0)
 		self.widget1.valorant_logo = QLabel(self.left)
@@ -33,7 +63,6 @@ class Form(QMainWindow):
 		self.setFixedSize(self.size())
 		self.setWindowFlag(Qt.FramelessWindowHint)
 		self.widget1.setupUi(self.left)
-		self.widget2.setupUi(self.right)
 
 		self.riot_games_logo_animation = QPropertyAnimation(self.widget1.riot_games_logo, b"geometry")
 		self.riot_games_logo_animation.setDuration(500)
@@ -63,9 +92,9 @@ class Form(QMainWindow):
 		self.widget1.username_line_edit.installEventFilter(self)
 		self.widget1.password_line_edit.installEventFilter(self)
 		# self.installEventFilter(self)
-		self.widget2.close_button.clicked.connect(self.close)
-		self.widget2.minimize_button.clicked.connect(self.showMinimized)
-		self.widget2.help_button.clicked.connect(self.show_help)
+		self.close_button.clicked.connect(self.close)
+		self.minimize_button.clicked.connect(self.showMinimized)
+		self.help_button.clicked.connect(self.show_help)
 		self.widget1.login_button.setStyleSheet("border-image: url(:/resources/resources/Login_button_disabled.png);")
 		self.widget1.login_button.pressed.connect(self.login_button_pressed)
 		self.widget1.login_button.released.connect(self.login_button_released)
