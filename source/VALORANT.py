@@ -56,7 +56,7 @@ QPushButton::hover {
 		self.valorant_logo_animation.setEndValue(QRect(168, 51, 66, 61))
 		self.right = QWidget(self)
 		self.right.move(400, 0)
-		
+
 		self.initUI()
 
 	def initUI(self):
